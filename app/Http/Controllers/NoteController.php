@@ -25,17 +25,9 @@ class NoteController extends Controller
      */
     public function index()
     {
-        return $this->note->with('user')->latest()->get();
-    }
+        $note = $this->note->with('user')->latest()->get();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response()->json($note);
     }
 
     /**
@@ -50,7 +42,7 @@ class NoteController extends Controller
         //Validation
         $this->validate($request, [
             'name' => 'required',
-            'description' => 'required|min:10'
+            'description' => 'required|min:10',
         ]);
         //Store note
         $this->note->user_id = $user->inRandomOrder()->value('id');
@@ -60,43 +52,10 @@ class NoteController extends Controller
         //Response
         return response()->json([
             'success' => true,
-            'notes' => $this->note->with('user')->latest()->get()
+            'notes' => $this->note->with('user')->latest()->get(),
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Note  $note
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Note $note)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Note  $note
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Note $note)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Note  $note
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Note $note)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -109,7 +68,7 @@ class NoteController extends Controller
         $note->delete();
 
         return response()->json([
-            'msg' => 'The note has been deleted.'
+            'msg' => 'The note has been deleted.',
         ]);
     }
 }

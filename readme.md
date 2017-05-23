@@ -13,16 +13,13 @@ This basic SPA is boostrapped with Laravel 5.4, Vue.js 2, VueRouter, Axios and s
 
 ## Installation
 * Clone or download the repository
-```PHP
-git clone https://github.com/hamog/Laravel-Vue.git
-```
 
 * CD in project root directory and Run
 ```PHP
 cd Laravel-Vue/
-composer install 
+composer install
 ```
-* Run 
+* Run
 ```PHP
 npm install
 ```
@@ -41,7 +38,7 @@ php artisan key:generate
 php artisan migrate --seed
 ```
 
-* Run 
+* Run
 ```PHP
 php artisan serve
 ```

@@ -1,15 +1,15 @@
 <template>
     <section>
         <h3 class="page-header">All Notes</h3>
-        <ul v-if="notes">
+        <ol v-if="notes">
             <li v-for="(note, index) in notes">
-                {{ note.name }} - <strong>{{ note.user.name }}</strong>
-
+                {{ note.name }}
                 <a :href="'/note/' + note.id" @click.prevent="deleteNote(note.id, index)" data-toggle="tooltip" data-placement="right" title="Delete Note">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </a>
+                <p>{{ note.description }}</p>
             </li>
-        </ul>
+        </ol>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
             Create New Note

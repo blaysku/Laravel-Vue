@@ -15,7 +15,7 @@
 
         @component('components.jumbotron')
             @slot('title')
-                Laravel 5.4 and Vue.js 2
+                Let's party
             @endslot
             @slot('description')
                 The Single page Application is test and implemented by Laravel 5.4 and Vue.js 2.
@@ -26,14 +26,11 @@
             <router-link to="/" tag="li" exact>
                 <a href="">Home</a>
             </router-link>
-            <router-link to="/about" tag="li">
-                <a href="">About</a>
-            </router-link>
             <router-link to="/contact" tag="li">
                 <a href="">Contact</a>
             </router-link>
             <router-link to="/notes" tag="li">
-                <a href="#">Notes</a>
+                <a href="">Notes</a>
             </router-link>
         </ul>
 
